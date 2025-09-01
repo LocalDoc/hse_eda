@@ -95,8 +95,12 @@ The shutdown price $p_{s}$ can be as low as $AVC^*$ or as high as $AC^*.$ Furthe
 A typical firm's supply - with an optimal output given any p.
 
 **Class Example 1**. Suppose the firm's total cost of producing $q$ is given by:
+
 $$C(q) = \begin{cases} 12 & q = 0 \\ 16 + q^2 & q > 0 \end{cases}$$
+
 Construct the firm's supply function $s(p)$.
 
-Step 1: (finding $q^*$)
+Step 1: 
+(finding $q^*$)
+
 $$p=MC(q^*) = C(q)' \text{ (FOC)} \implies p = 2q$$
