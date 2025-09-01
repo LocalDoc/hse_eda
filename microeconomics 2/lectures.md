@@ -96,7 +96,12 @@ A typical firm's supply - with an optimal output given any p.
 
 **Class Example 1**. Suppose the firm's total cost of producing $q$ is given by:
 
-$$C(q) = \begin{cases} 12 & q = 0 \\ 16 + q^2 & q > 0 \end{cases}$$
+$$C(q) = 
+\begin{cases} 
+12 & q = 0 \\
+16 + q^2 & q > 0 
+\end{cases}
+$$
 
 Construct the firm's supply function $s(p)$.
 
