@@ -1,3 +1,5 @@
+### Topic: Review
+
 **Definition.** Let $F \geq 0$ denote fixed costs (independent of quantity $q$), and $VC(q) \geq 0$ denote the variable cost of producing quantity $q$.
 
 >[!note]
@@ -13,7 +15,7 @@ $$MC(q) = C'(q) = VC'(q)$$
 **Definition.** The average costs (AC) and average variable costs (AVC) for quantity $q > 0$ are:
 $$AC(q) = \frac{C(q)}{q} \quad \text{and} \quad AVC(q) = \frac{VC(q)}{q}$$
 
-![](https://drive.google.com/file/d/1X4W3gBChFYndcqkz_80bo6Z7RB2BhZ3U/view?usp=sharing)
+![test](https://drive.google.com/file/d/1X4W3gBChFYndcqkz_80bo6Z7RB2BhZ3U/view?usp=sharing)
 
 >[!note]
 The $MC$ curve intersects the $AC$ and $AVC$ curves at their minimums (at interior points).
@@ -23,8 +25,8 @@ The $MC$ curve intersects the $AC$ and $AVC$ curves at their minimums (at interi
 **Definition.** The total cost of producing quantity $q$ is given by:
 $$C(q) = \begin{cases} S & q = 0 \\ F + VC(q) & q > 0 \end{cases}$$
 where:
-- $S$ is the sunk cost part of fixed costs ($S \leq F$)
-- $F - S$ is the avoidable part of fixed costs
+$S$ is the sunk cost part of fixed costs ($S \leq F$)
+$F - S$ is the avoidable part of fixed costs
 
 >[!note]
 Teachers sometimes assume that $S = F$.
@@ -32,7 +34,7 @@ Teachers sometimes assume that $S = F$.
 >[!note]
 There will be an upcoming task where if you are unable to find the the fixed costs, it is recommended you draw the cost function $c(q)$. 
 
-#### Perfect Competition
+### Topic:Perfect Competition
 
 **Definition.** A perfectly competitive market is an ideal (a benchmark) against which other models/markets are compared.
 
