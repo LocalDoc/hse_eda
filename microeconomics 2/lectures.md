@@ -15,7 +15,7 @@ $$MC(q) = C'(q) = VC'(q)$$
 **Definition.** The average costs (AC) and average variable costs (AVC) for quantity $q > 0$ are:
 $$AC(q) = \frac{C(q)}{q} \quad \text{and} \quad AVC(q) = \frac{VC(q)}{q}$$
 
-![test](https://drive.google.com/file/d/1X4W3gBChFYndcqkz_80bo6Z7RB2BhZ3U/view?usp=sharing)
+[test](https://drive.google.com/file/d/1X4W3gBChFYndcqkz_80bo6Z7RB2BhZ3U/view?usp=sharing)
 
 >[!note]
 The $MC$ curve intersects the $AC$ and $AVC$ curves at their minimums (at interior points).
