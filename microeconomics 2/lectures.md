@@ -75,11 +75,17 @@ Thus, intuitively, marginal costs must be increasing at $q^*$.
 
 **Step 2.** The shutdown condition: it must be checked that shutting down is suboptimal:
 
-$$\pi(q^*) \geq \pi(0) \text{ (profit with p* vs profit when shutting down)}$$
+$$
+\pi(q^*) \geq \pi(0) \text{ (profit with p* vs profit when shutting down)}
+$$
 
-$$p \cdot q^* - F- VC(q^*) \geq -S$$
+$$
+p \cdot q^* - F- VC(q^*) \geq -S
+$$
 
-$$p \geq AVC(q^*) + \frac{F-S}{q^*} \text{ (Remember that } \frac{VC}{q}=AVC \text{)}$$
+$$
+p \geq AVC(q^*) + \frac{F-S}{q^*} \text{ (Remember that } \frac{VC}{q}=AVC \text{)}
+$$
 
 or
 
