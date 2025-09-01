@@ -13,6 +13,7 @@ $$MC(q) = C'(q) = VC'(q)$$
 (When taking the derivative of the $C(q)$, $F$ gets destroyed, as fixed costs are constant no matter how much is produced.)
 
 **Definition.** The average costs (AC) and average variable costs (AVC) for quantity $q > 0$ are:
+
 $$AC(q) = \frac{C(q)}{q} \quad \text{and} \quad AVC(q) = \frac{VC(q)}{q}$$
 
 > **Note**
@@ -73,11 +74,17 @@ Thus, intuitively, marginal costs must be increasing at $q^*$.
 > If at any point your $p^* <0$, then you are doing something wrong.
 
 **Step 2.** The shutdown condition: it must be checked that shutting down is suboptimal:
+
 $$\pi(q^*) \geq \pi(0) \text{ (profit with p* vs profit when shutting down)}$$
+
 $$p \cdot q^* - F- VC(q^*) \geq -S$$
+
 $$p \geq AVC(q^*) + \frac{F-S}{q^*} \text{ (Remember that } \frac{VC}{q}=AVC \text{)}$$
+
 or
+
 $$MC(q^*) \geq AVC(q^*) + \frac{F-S}{q^*}$$
+
 Remember that the optimal price is the marginal cost of a product.
 
 > **Note**
@@ -87,7 +94,9 @@ Remember that the optimal price is the marginal cost of a product.
 
 > **Note**
 > You can solve for $q_s$ and $p_s$ using the following equations we got previously.
+
 $$MC(q_s) = AVC(q_s) + \frac{F-S}{q_s}$$
+
 $$p_s = MC(q_s)$$
 
 The shutdown price $p_{s}$ can be as low as $AVC^*$ or as high as $AC^*.$ Furthermore, if some of the shutdown costs are avoidable, then shutdown costs become higher.
