@@ -1,4 +1,3 @@
-This is a collection of my personal notes. Both in a PDF and a handwritten format. 
-I try to be watchful, but there will be mistakes and things I miss.
-If you encounter any of these mistakes, please do contact [me](https://t.me/local_dan). Cheers! 
+This is a collection of my personal notes. Older, first year, notes are kept as PDFs, whilst all others will be kept and updated through markdown. 
+For any encountered errors, or suggestions, please do contact [me](https://t.me/local_dan). 
 
