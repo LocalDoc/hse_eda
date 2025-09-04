@@ -26,12 +26,17 @@
 
 Определение. Полная группа несовместных событий — такой набор событий, для которого выполняются такие условия:
 
-$$A_{i}\cap A_{j}=\varnothing \ \ \forall i\neq j \  \text{(Несовместимо)}$$
-
-$$\bigcup_{i}A_{i}=\Omega \ (\text{Полнота})$$
+$$
+\begin{aligned}
+&A_{i}\cap A_{j}=\varnothing \ \ \forall i\neq j \  \text{(Несовместимо)} \\
+&\bigcup_{i}A_{i}=\Omega \ (\text{Полнота})
+\end{aligned}
+$$
 
 Аксиома $\exists$ вероятности.
-$$\forall\omega_{i} \  \exists p_{i}\geqslant 0, \text{при этом} \sum_{i}p_{i}=1$$
+$$
+\forall\omega_{i} \  \exists p_{i}\geqslant 0, \text{при этом} \sum_{i}p_{i}=1
+$$
 
 Для $\forall$ элементарного исхода есть числовая неотрицательная числовая характеристика  которая характеризует шанс его появления.
 
