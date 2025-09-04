@@ -70,9 +70,14 @@ $$P(A)=\sum_{\omega_{i}\in A}p(\omega_{i})$$
 
 ##### 1.2 Теорема сложения
 
-$$P(A\cup B)=P(A)+P(B)-P(A\cap B)$$
+$$
+\begin{align*}
+P(A\cup B) &= P(A)+P(B)-P(A\cap B) \\
+P(A_{1}\cup\dots\cup A_{n}) &= \sum_{i=1}^{n}P(A_{i})-\sum_{i<j}P(A_{i}\cap A_{j}) +\dots+(-1)^{n-1}P(A_{1}\cap\dots\cap A_{n})
+\end{align*}
+$$
 
-$$P(A_{1}\cup\dots\cup A_{n})=\sum_{i=1}^{n}P(A_{i})-\sum_{i<j}(A_{i}\cap A_{j}) +\dots+(-1)^{n-1}P(A_{1}\cap\dots\cap A_{n})$$
+
 
 ##### 1.3 Условная вероятность
 
