@@ -1,1 +1,2 @@
-EDS's basic Marcoeconomics course notes.  
+FES's basic Macroeconomics abstract and practical notes. 
+ 

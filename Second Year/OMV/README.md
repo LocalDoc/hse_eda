@@ -1,1 +1,2 @@
-Основы матричных вычислений
+FCS's OMV abstract and practical notes. 
+ 
