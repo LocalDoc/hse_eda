@@ -1,9 +1,9 @@
 FCS's OMV abstract and practical notes. 
  
-### Current material:
+## Current material:
 
-### Current backlog: 
-<span style="color: red">Theorical homework 1</span>
-<span style="color: red">Practical homework 1</span>
+## Current backlog: 
+- Theorical homework 1
+- Practical homework 1
 
-### Sources, references and contributors:
+## Sources, references and contributors:
