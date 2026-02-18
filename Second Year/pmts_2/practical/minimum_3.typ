@@ -104,7 +104,7 @@ $
 
 Пусть последовательность с.в. ${xi_n}$ сходиться к с.в. $xi_i$ по вероятности, для:
 $
-  forall epsilon >0, quad PP(1/n xi | xi_i - mu | >= epsilon ) stretch(->)_(n --> infinity) 0
+  forall epsilon >0, quad PP(|xi_i - xi | >= epsilon ) stretch(->)_(n --> infinity) 0
 $
 
 Обозначение: 
@@ -118,10 +118,10 @@ $
 
 23. Дайте определение нормально распределённой случайной величины. Для неё укажите диапазон возможных значений, функцию плотности, ожидание, дисперсию. Нарисуйте функцию плотности.
 
-Случайный вектор $X ~ N(mu, C)$, если его функция имеет вид: 
+Случайная величина $X ~ N(mu, sigma^2)$, если ее функция имеет вид: 
 
 $
-  f(x_1, dots, x_n) = 1/sqrt(2 pi) dot 1/sigma dot e^(-1/2((x-mu)/alpha)^2)
+  f(x) = 1/sqrt(2 pi) dot 1/sigma dot e^(-1/2((x-mu)/alpha)^2)
 $
 
 #set align(center)
@@ -129,7 +129,7 @@ $
 #set align(left)
 
 $
-  EE(X) = mu, "Var"(X) = sigma^2, "cov"(X) = C , "Domain" (-infinity , + infinity)
+  EE(X) = mu, "Var"(X) = sigma^2, "Domain" (-infinity , + infinity)
 $
 
 $
@@ -262,7 +262,7 @@ $
   mu = 1, quad sigma = sqrt(4) = 2 \
   "Standartization" -> Z = (X-mu)/sigma ~ N(0,1) \ 
   P (1 < X < 4) = P((1-1)/2 < X < (4-1)/2)  = P(0 < X < 1.5)\
-  Phi(1.5)- Phi(0) = 0.9938 - 0.5000 =  0.4332
+  Phi(1.5)- Phi(0) = 0.9332 - 0.5000 =  0.4332
 $
 
 24. Пусть случайная величина $X ∼ N(2, 4)$. Найдите $P(−2 < X < 4)$.
@@ -285,7 +285,7 @@ $
   X space bot space Y => EE(S) = a EE(X) + b EE(Y), quad "Var"(X) = a^2 "Var"(X) + b^2 "Var"(Y) \
   EE(S) = 1 dot 0 + 2 dot 2 = 4, quad "Var"(S) = 1^2 dot 1 + 2^2 dot 6 = 25 => mu = 4, sigma = sqrt(25) = 5 \ 
   S ~ N(4, 25), quad "Standartization" ->  Z = (X - mu)/sigma ~ N(0,1) \ 
-  P(1 < S < 7) = P((1 - 4)/5 < S< (7-4)/4) = \ Phi(3/5 ) - Phi(-3/5) = Phi(3/5) - (1 - Phi(3/5)) = 2 Phi(0.6) - 1 = 2 dot 0.7257 - 1 = 0.4514
+  P(1 < S < 7) = P((1 - 4)/5 < S< (7-4)/5) = \ Phi(3/5 ) - Phi(-3/5) = Phi(3/5) - (1 - Phi(3/5)) = 2 Phi(0.6) - 1 = 2 dot 0.7257 - 1 = 0.4514
 $
 
 $
