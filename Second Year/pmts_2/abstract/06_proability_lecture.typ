@@ -11,6 +11,8 @@
 #pagebreak()
 #show heading: set align(left)
 
+О любых найденных ошибках, несостыковок, и опечаток сообщять #link("https://t.me/local_dan")[мне], либи сделать merge request на #link("github.com/LocalDoc/hse_eda/tree/main/Second Year/Macroeconomics")[гит]. Я буду очень благодарен. 
+
 == Лемма Фишера
 
 #let theorem = $
