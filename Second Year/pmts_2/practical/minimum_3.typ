@@ -118,10 +118,10 @@ $
 
 23. Дайте определение нормально распределённой случайной величины. Для неё укажите диапазон возможных значений, функцию плотности, ожидание, дисперсию. Нарисуйте функцию плотности.
 
-Случайный вектор $X ~ N(mu, C)$, если его функция имеет вид: 
+Случайная величина $X ~ N(mu, sigma^2)$, если ее функция имеет вид: 
 
 $
-  f(x_1, dots, x_n) = 1/sqrt(2 pi) dot 1/sigma dot e^(-1/2((x-mu)/alpha)^2)
+  f(x) = 1/sqrt(2 pi) dot 1/sigma dot e^(-1/2((x-mu)/alpha)^2)
 $
 
 #set align(center)
@@ -129,7 +129,7 @@ $
 #set align(left)
 
 $
-  EE(X) = mu, "Var"(X) = sigma^2, "cov"(X) = C , "Domain" (-infinity , + infinity)
+  EE(X) = mu, "Var"(X) = sigma^2, "Domain" (-infinity , + infinity)
 $
 
 $
