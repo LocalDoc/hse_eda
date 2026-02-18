@@ -25,7 +25,7 @@
 
 #let model_IS_LM = $
 cases(
-  "IS" := (1 - alpha) dot Y = A_0 + I'_R, , "LM":= m^d_Y dot Y + m^d_R dot R = M/P)
+  "IS" := (1 - alpha) dot Y = A_0 + I'_R dot R, , "LM":= m^d_Y dot Y + m^d_R dot R = M/P)
 $
 
 #set align(center)
