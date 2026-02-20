@@ -94,10 +94,15 @@ $
 #set align(center)
 #table(
   columns: 3 ,
+  fill: (col, row) => if row == 0 {rgb("#557fe649")},
+  [class sign], [ num], [res], 
   [+1 :], [50], [$alpha(x)$ = -1],
   [-1 :], [950], [accuracy = 0.95]
 )
 #set align(left)
+
+
+
 
 Мораль: Когда работаете с задачей классификации всегда необходимо смотреть на баланс классов. 
 
@@ -111,6 +116,7 @@ $
 #set align(center)
 #table(
   columns: 3, 
+  fill: (col, row) => if row == 0 { rgb("#577fe649") },
   [$r_1, r_2$], [abs],[rel],
   [20%, 10%],[10%],[50%], 
   [50%, 25%], [25%],[50%], 
