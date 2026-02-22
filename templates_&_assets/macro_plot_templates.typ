@@ -207,3 +207,5 @@ All markets seen in the current semester have 3 potential stages.
   })
 )
 #set align(left)
+
+

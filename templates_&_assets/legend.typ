@@ -35,4 +35,33 @@
   proof
 )
 
+#text(rgb("#3d67b0"))[
+  $
+
+    h_0 = frac(sum^s_(r=1) u_r dot y_r_0,sum^m_(i=1) v_i dot x_i_0) -> max quad "s.t." frac(sum^s_(r=1) u_r dot y_(r j),v_i dot x_(i j)) <= 1, space  forall u_r, v_i >= 0 , space j, r,i= cases(
+      j = 1","dots","n, 
+      r  = 1","dots","s,
+      i=1","dots","m
+    )
+  $
+]
+
+
+
+#text(rgb("#3d67b0"))[
+  $
+   ∑_(r=1)^s u_r y_(r_0) -> max
+
+"s.t."
+
+∑_(i=1)^m v_i x_(i_0) = 1, space 
+
+∑_(r=1)^s u_r y_(r j) − ∑_(i=1)^m v_i x_(i j) ≤ 0, \
+u_r, v_i >= 0,  space j, r,i= cases(
+      j = 1","dots","n, 
+      r  = 1","dots","s,
+      i=1","dots","m
+)
+  $
+]
 
