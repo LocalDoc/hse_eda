@@ -6,9 +6,6 @@ All markets seen in the current semester have 3 potential stages.
 + Economic shock (red and / or orange)
 + Return to (new) equilibrium (green and / or dark green)
 
-
-
-
 === Goods market 
 
 #set align(center)
@@ -19,7 +16,7 @@ All markets seen in the current semester have 3 potential stages.
       x-label: "Y", y-label: "AE",       
       x-tick-step: none, y-tick-step: none,
       x-min: 0, x-max: 10, y-min: 0, y-max: 10,
-      legend: "inner-north",
+      legend: "south",
       {
         let domain = (0, 10)
       plot.add(x => x, domain: domain, style: (stroke: black),label: $"AE"_f$)
@@ -46,7 +43,7 @@ All markets seen in the current semester have 3 potential stages.
 
     x-tick-step: none, y-tick-step: none,
     x-min: 0, x-max: 10, y-min: 0, y-max: 10,
-    legend: "inner-north",
+    legend: "south",
 
     {
       let domain = (0, 10)
@@ -63,7 +60,6 @@ All markets seen in the current semester have 3 potential stages.
 
 === Financial market 
 
-
 #set align(center)
 #canvas({
     import draw: *
@@ -72,7 +68,7 @@ All markets seen in the current semester have 3 potential stages.
       x-label: $M^S/P$, y-label: "R",       
       x-tick-step: none, y-tick-step: none,
       x-min: 0, x-max: 10, y-min: 0, y-max: 10,
-      legend: "inner-north",
+      legend: "south",
       {
         let domain = (0, 10)
         plot.add(x => -x + 10 , domain: (2,8), label: $m^d (Y)$, style: (stroke: black))
@@ -102,7 +98,7 @@ All markets seen in the current semester have 3 potential stages.
 
     x-tick-step: none, y-tick-step: none,
     x-min: 0, x-max: 10, y-min: 0, y-max: 10,
-    legend: "inner-north",
+    legend: "south",
 
     {
       let domain = (0, 10)
@@ -130,7 +126,7 @@ All markets seen in the current semester have 3 potential stages.
       x-label: "", y-label: "",       
       x-tick-step: none, y-tick-step: none,
       x-min: 0, x-max: 10, y-min: 0, y-max: 10,
-      legend: "inner-north",
+      legend: "south",
       {
         let domain = (0, 10)
       }
@@ -144,7 +140,7 @@ All markets seen in the current semester have 3 potential stages.
       x-label: "", y-label: "",       
       x-tick-step: none, y-tick-step: none,
       x-min: 0, x-max: 10, y-min: 0, y-max: 10,
-      legend: "inner-north",
+      legend: "south",
       {
         let domain = (0, 10)
 
@@ -168,7 +164,7 @@ All markets seen in the current semester have 3 potential stages.
       x-label: "x", y-label: "y",       
       x-tick-step: none, y-tick-step: none,
       x-min: 0, x-max: 10, y-min: 0, y-max: 10,
-      legend: "inner-north",
+      legend: "south",
       {
         let domain = (0, 10)
 
@@ -183,7 +179,7 @@ All markets seen in the current semester have 3 potential stages.
       x-label: "x", y-label: "y",       
       x-tick-step: none, y-tick-step: none,
       x-min: 0, x-max: 10, y-min: 0, y-max: 10,
-      legend: "inner-north",
+      legend: "south",
       {
         let domain = (0, 10)
 
@@ -198,7 +194,7 @@ All markets seen in the current semester have 3 potential stages.
       x-label: "x", y-label: "y",       
       x-tick-step: none, y-tick-step: none,
       x-min: 0, x-max: 10, y-min: 0, y-max: 10,
-      legend: "inner-north",
+      legend: "south",
       {
         let domain = (0, 10)
 
@@ -208,4 +204,80 @@ All markets seen in the current semester have 3 potential stages.
 )
 #set align(left)
 
+=== Currency models
 
+#set align(center)
+#canvas({ //currency model f/d with currency amount 
+    import draw: *
+    plot.plot(
+      size: (6, 6),
+      x-label: $"domestic currency amount"$, y-label: $"E"^("f"/"d")$,       
+      x-tick-step: none, y-tick-step: none,
+      x-min: 0, x-max: 10, y-min: 0, y-max: 10,
+      legend: "south",
+      {
+        let domain = (0, 10)
+      plot.add(x => x, domain: domain, style: (stroke: black),label: $"E"^("f"/"d")$)
+      plot.add-vline(5, max: 5, style: (stroke: (paint: rgb("#938c8c"), dash: "dotted", thickness: 1pt)))
+      plot.add(((5, 5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: black, thickness: 2pt), fill: black), style: (stroke: none))
+    }
+    )
+  })
+#set align(left)
+
+#set align(center)
+#canvas({ //currency model f/d with currency amount 
+    import draw: *
+    plot.plot(
+      size: (6, 6),
+      x-label: $"foreign currency amount"$, y-label: $"E"^("d"/"f")$,       
+      x-tick-step: none, y-tick-step: none,
+      x-min: 0, x-max: 10, y-min: 0, y-max: 10,
+      legend: "south",
+      {
+        let domain = (0, 10)
+      plot.add(x => x, domain: domain, style: (stroke: black),label: $"E"^("d"/"f")$)
+      plot.add-vline(5, max: 5, style: (stroke: (paint: rgb("#938c8c"), dash: "dotted", thickness: 1pt)))
+      plot.add(((5, 5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: black, thickness: 2pt), fill: black), style: (stroke: none))
+    }
+    )
+  })
+#set align(left)
+
+#set align(center)
+#canvas({ //currency model f/d with price 
+    import draw: *
+    plot.plot(
+      size: (6, 6),
+      x-label: $"P"^"f"$, y-label: $"E"^("f"/"d")$,       
+      x-tick-step: none, y-tick-step: none,
+      x-min: 0, x-max: 10, y-min: 0, y-max: 10,
+      legend: "south",
+      {
+        let domain = (0, 10)
+      plot.add(x => x, domain: domain, style: (stroke: black),label: $"E"^("f"/"d")$)
+      plot.add-vline(5, max: 5, style: (stroke: (paint: rgb("#938c8c"), dash: "dotted", thickness: 1pt)))
+      plot.add(((5, 5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: black, thickness: 2pt), fill: black), style: (stroke: none))
+    }
+    )
+  })
+#set align(left)
+
+#set align(center)
+#canvas({ //currency model d/f with price 
+    import draw: *
+    plot.plot(
+      size: (6, 6),
+      x-label: $"P"^"d"$, y-label: $"E"^("d"/"f")$,       
+      x-tick-step: none, y-tick-step: none,
+      x-min: 0, x-max: 10, y-min: 0, y-max: 10,
+      legend: "south  ",
+      {
+        let domain = (0, 10)
+      plot.add(x => x, domain: domain, style: (stroke: black),label: $"E"^("d"/"f")$)
+      plot.add-vline(5, max: 5, style: (stroke: (paint: rgb("#938c8c"), dash: "dotted", thickness: 1pt)))
+      plot.add(((5, 5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: black, thickness: 2pt), fill: black), style: (stroke: none))
+    }
+    )
+  })
+#set align(left)
