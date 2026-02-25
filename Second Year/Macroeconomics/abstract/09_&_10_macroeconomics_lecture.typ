@@ -478,7 +478,7 @@ $
 
 
 Formally:
-$
+#let formal_1 = $
   & SS  =  G  arrow.t \ 
   & EE_(KK KK) stretch(==>)^(G arrow.t)   "AE"_0 arrow.t ==>
    "AE"_1_"pl" (R_1) < "AE"_2_"pl" (R_1) 
@@ -489,11 +489,24 @@ $
   & Re = "AE"_1_"pl" (R_1) <  "AE"_3_"pl" (R_2) , space "IS"_1 < "IS"_2  , space m^d'_1 (Y_"black") < m^d'_2 (Y_"green")
 $
 
-= I am tired the following is work in progress. 
+#block(
+  inset: 10pt, 
+  stroke: 0.2pt, 
+  width: 100%,
+  formal_1
+  
+)
+
 
 *Фискальная политика и сдвиг кривой AD.*
 
+При фискальной политики экономика в модели IS-LM  переходит в новое равновесие. 
 
+Величина сопокупного спроса растет, но при том же уровне цен, что соотвествует параллеьному сдвину AD. 
+
+Изменение величины совокупного спроса  соотвествует изменению равновесного выпуска модели IS-LM. 
+
+Чем больше фисмальная политика в модели IS-LM воздействует на выпуск, тем более эффективно она воздействует на совокупный спрос. При этом изменение спроса при том же уровне цен будет равно изменению равновесия в IS-LM. 
 
 #canvas({ //this is the IS - LM model 
     import draw: *
@@ -505,13 +518,16 @@ $
       legend: "north-east",
       {
         let domain = (2, 8) 
-      plot.add(x => -x + 10, domain: (2,8), label: $"IS"_1$, style: (stroke: rgb("#000000")))
-      plot.add(x => x, domain: (2,8), label: $"LM"$, style: (stroke: rgb("#938c8c")))
-      plot.add-vline(5, max: 10, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
-      plot.add-hline(5, max: 9, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
+      plot.add(x => -x + 10, domain: (2,8), label: $ "IS"(G_1) $, style: (stroke: rgb("#000000")))
+      plot.add(x => x, domain: (2,8), label: $"LM"_(P_1)$, style: (stroke: rgb("#938c8c")))
+      plot.add-vline(5, max: 5, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
+      plot.add-hline(5, max: 5, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
       plot.add(((5, 5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: black, thickness: 2pt), fill: black), style: (stroke: none)) 
 
-
+      plot.add(x => -x + 12, domain: (3,9), label: $ "IS"(G_2) $, style: (stroke: rgb(red)))
+      plot.add(((6, 6),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: red, thickness: 2pt), fill: red), style: (stroke: none)) 
+      plot.add-vline(6, max: 6, style: (stroke: (paint: rgb(red), dash: "dotted", thickness: 1pt)))
+      plot.add-hline(6, max: 6, style: (stroke: (paint: rgb(red), dash: "dotted", thickness: 1pt)))
       }
     )
 }),
@@ -526,15 +542,54 @@ $
       legend: "north-east",
       {
         let domain = (2, 8) 
-      plot.add(x => -x + 10, domain: (2,8), label: $"IS"_1$, style: (stroke: rgb("#000000")))
+      plot.add(x => -x + 10, domain: (2,8), label: $"AD"_(g_1)$, style: (stroke: rgb("#000000")))
+      plot.add-hline(5, max: 5, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
+      plot.add-vline(5, max: 10, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
+      plot.add(((5, 5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: black, thickness: 2pt), fill: black), style: (stroke: none)) 
 
+      plot.add(x => -x + 11, domain: (3,9), label: $"AD"_(g_2)$, style: (stroke: rgb(red)))
+      plot.add-hline(5, min: 5, max: 6, style: (stroke: (paint: rgb(red), dash: "dotted", thickness: 1pt)))
+      plot.add(((6, 5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: red, thickness: 2pt), fill: red), style: (stroke: none)) 
+      plot.add-vline(6, max: 5, style: (stroke: (paint: rgb(red), dash: "dotted", thickness: 1pt)))
       }
     )
 }),
 
+#pagebreak()
+
+Formally: 
+
+#let formal_2  = $
+  & SS  =   \
+  & EE_(KK KK)  \
+  & EE_(II SS -LL  MM) \
+  & EE_(FF MM)  \
+  & Re = 
+$
+
+#block(
+  inset: 10pt, 
+  stroke: 0.2pt, 
+  width: 100%,
+  formal_2
+  
+)
+
 
 = Эффект вытеснения в модели IS-LM
 
+*Crowding-out effect.*
+
+Разнца между ростом дохода в результате действия стимулирующей фискальной политики при той же ставке процента (в товарном рынке) и ростом дохода в модели IS-LM в результате приспособления к шоку как товарного, так и фискального рынка.  (1)
+
+
+*Multiplier effect.*
+
+Уменьшение дохода в модели IS-LM происходит из-за снижения инвестиций в результате роста ставки процента которое вызвана неравновесием на финансовом рынке. (2)
+
+*Оценка эффекта вытеснения в модели IS-LM.*
+
+Далее, чем меньше *эффект вытеснения  инвестиций* тем больше изменение дохода в модели IS-LM, тем более эффективно действует на спрос фискальная политика. (3)
 
 #set align(center)
 #canvas({ //this is the IS - LM model 
@@ -550,32 +605,101 @@ $
       plot.add(x => -x + 10, domain: (2,8), label: $"IS"_1$, style: (stroke: rgb("#000000")))
       plot.add(x => x, domain: (2,8), label: $"LM"$, style: (stroke: rgb("#938c8c")))
       plot.add-vline(5, max: 10, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
-      plot.add-hline(5, max: 9, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
+      plot.add-hline(5, max:5, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
       plot.add(((5, 5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: black, thickness: 2pt), fill: black), style: (stroke: none)) 
 
+      plot.add(x => -x + 12, domain: (3,9), label: $"IS"_2$, style: (stroke: rgb(red)))
+      plot.add-vline(7, max: 5, style: (stroke: (paint: rgb(red), dash: "dotted", thickness: 1pt)))
+      plot.add-hline(5, min:5 , max:7, style: (stroke: (paint: rgb(red), dash: "dotted", thickness: 1pt)))
+      plot.add(((7, 5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: red, thickness: 2pt), fill: red), style: (stroke: none)) 
 
+      plot.add(((6, 6),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: green, thickness: 2pt), fill: green), style: (stroke: none)) 
+      plot.add-vline(6, max: 6, style: (stroke: (paint: rgb(green), dash: "dotted", thickness: 1pt)))
+      plot.add-hline(6, min:0 , max:6, style: (stroke: (paint: rgb(green), dash: "dotted", thickness: 1pt)))
+
+      plot.add-hline(1, min:6 , max:7, label: "Crowding-out effect", style: (stroke: (paint: rgb(purple), dash: "dotted", thickness: 1pt)))
+
+      plot.add-hline(2, min:5 , max:7, label: "Multiplier effect", style: (stroke: (paint: rgb(orange), dash: "dotted", thickness: 1pt)))
+
+      plot.add-hline(1, min:5 , max:6, label: "Change in income in IS-LM following fiscal policy", style: (stroke: (paint: rgb(yellow), dash: "dotted", thickness: 1pt)))
       }
     )
 }),
 #set align(left)
 
 
-*Crowding-out effect (Оценка эффекта вытеснения в модели IS-LM).*
+Formally: 
 
+#let formal_3  = $
+  & SS  =   \
+  & EE_(KK KK)  \
+  & EE_(II SS -LL  MM) \
+  & EE_(FF MM)  \
+  & Re = 
+$
 
-*Multiplier effect*
-
+#block(
+  inset: 10pt, 
+  stroke: 0.2pt, 
+  width: 100%,
+  formal_3
+  
+)
 
 *Оценка эффекта вытеснения в модели IS-LM*
 
-Способоы:
+Оценить эффект вытеснения, возникающий при проведении стимулирующей фискальной политики можно двумя способами. 
 
-1. 
+1. Разница изменения дохода в КК   изменение дохода в IS-LM при проедении стимулирующей фискальной политики. 
 
-2. 
+#let example = $
+  
+$
 
+#block(
+  fill: rgb("#577fe649"),
+  inset: 10pt, 
+  stroke: 0.2pt, 
+  width: 100%,
+  example
+)
+
+2. Как реакцию товарного рынка на рост ставки процента, который произошел в экономике для восстановления совместеого равновесия в IS-LM после фискальной политики. 
+
+#let example = $
+  
+$
+
+#block(
+  fill: rgb("#577fe649"),
+  inset: 10pt, 
+  stroke: 0.2pt, 
+  width: 100%,
+  example
+)
 
 = Монетарная политика в модели IS-LM
+
+
+
+#let mixed_IS_LM = $
+mat((1-α)/m_d^(Y'), -I^'_R; m_d^(Y') , m_d^R)dot vec(d Y, d R) = vec(0 , (d M^S)/P)
+==>  \ 
+==>
+
+    d Y  
+  = mat(#($0$, $- I^'_R$), #($ (d M^S)/P$, $m^d'_R$), delim: "|")/triangle  = (I'_R)/triangle  dot (d M^S)/P > 0 , quad  
+
+  d R 
+  = mat(#($(1- alpha)$, $0$), #($m^d'_Y$, $ (d M^S)/P$), delim: "|") /triangle = ((1 - alpha))/triangle  (d M^S)/P <  0
+$
+
+#block(
+  inset: 10pt, 
+  stroke: 0.2pt, 
+  width: 100%, 
+  mixed_IS_LM, 
+)
 
 Рассмотрим что произойдет при cтимулирующей и сдерживающей монетарной политики. 
 
@@ -641,7 +765,26 @@ $
 #set align(left)
 
 
-bla bla bla bl abla 
+Formally: 
+
+#let formal_3  = $
+  & SS  =   \
+  & EE_(KK KK)  \
+  & EE_(II SS -LL  MM) \
+  & EE_(FF MM)  \
+  & Re = 
+$
+
+#block(
+  inset: 10pt, 
+  stroke: 0.2pt, 
+  width: 100%,
+  formal_3
+  
+)
+
+
+Теперь рассмотрим что произойдет при $d M > 0$ в КК. 
 
 #canvas({ //this is the KK model 
   import draw: *
@@ -651,7 +794,7 @@ bla bla bla bl abla
     x-label: $"Y"$, y-label: $"AE"$,
     x-tick-step: none, y-tick-step: none,
     x-min: 0, x-max: 10, y-min: 0, y-max: 10,
-    legend: "south",
+    legend: "north-east",
 
     {
       let domain = (0, 10)
@@ -660,18 +803,11 @@ bla bla bla bl abla
       plot.add-vline(5, max: 5, style: (stroke: (paint: rgb("#938c8c"), dash: "dotted", thickness: 1pt)))
       plot.add(((5, 5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: black, thickness: 2pt), fill: black), style: (stroke: none))
 
-      plot.add(x => x * 1/2 + 4.5, domain: domain, style: (stroke: red), label: $ "AE"_2_(p l) (R_1) $)
-      plot.add(((9, 9),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: red, thickness: 2pt), fill: red), style: (stroke: none))
-      plot.add-vline(9, max: 9, style: (stroke: (paint: rgb(red), dash: "dotted", thickness: 1pt)))
+      plot.add(x => x * 1/2 + 3.1, domain: domain, style: (stroke: green), label: $ "AE"_3_(p l) (R_2) $)
+      plot.add(((6.2, 6.2),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: green, thickness: 2pt), fill: green), style: (stroke: none))
+      plot.add-vline(6.2, max: 6.2, style: (stroke: (paint: rgb(green), dash: "dotted", thickness: 1pt)))
 
-
-      plot.add(x => x * 1/2 + 3.5, domain: domain, style: (stroke: green), label: $ "AE"_3_(p l) (R_2) $)
-      plot.add(((7, 7),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: green, thickness: 2pt), fill: green), style: (stroke: none))
-      plot.add-vline(7, max: 7, style: (stroke: (paint: rgb(green), dash: "dotted", thickness: 1pt)))
-
-      plot.add-vline(1, min: 3, max: 5, label: $ triangle G ( 1 - "mpc") $ , style: (stroke: (paint: rgb(red),  dash: "dotted", thickness: 1pt)))
-
-      plot.add-vline(1.2, min: 4.1, max: 5.1, label: $ triangle I $ , style: (stroke: (paint: rgb(green),  dash: "dotted", thickness: 1pt)))
+      plot.add-vline(1.2, min: 3.1, max: 3.7, label: $ triangle I $ , style: (stroke: (paint: rgb(green),  dash: "dotted", thickness: 1pt)))
     }
   )
 })
@@ -689,23 +825,21 @@ bla bla bla bl abla
       legend: "south",
       {
         let domain = (2, 8) 
-      plot.add(x => -x + 10, domain: (2,8), label: $"IS"_1$, style: (stroke: rgb("#000000")))
-      plot.add(x => x, domain: (2,8), label: $"LM"$, style: (stroke: rgb("#938c8c")))
+      plot.add(x => -x + 10, domain: (2,8), label: $"IS"$, style: (stroke: rgb("#000000")))
+      plot.add(x => x, domain: (2,8), label: $"LM"_1$, style: (stroke: rgb("#938c8c")))
       plot.add-vline(5, max: 10, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
-      plot.add-hline(5, max: 9, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
+      plot.add-hline(5, max: 10, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
       plot.add(((5, 5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: black, thickness: 2pt), fill: black), style: (stroke: none)) 
 
-      plot.add-vline(9, max: 10, style: (stroke: (paint: rgb(red), dash: "dotted", thickness: 1pt)))
+      plot.add(x => x - 2.5, domain: (3.5,9.5), label: $"LM"_2$, style: (stroke: rgb(red)))
 
-      plot.add-vline(7, max: 10, style: (stroke: (paint: rgb(green), dash: "dotted", thickness: 1pt)))
+      plot.add(((5, 2.1),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: red, thickness: 5pt), fill: red), style: (stroke: none))
+      plot.add-hline(2, max: 10, style: (stroke: (paint: rgb(red), dash: "dotted", thickness: 1pt)))
 
-      plot.add(x => -x + 14, domain: (4.5,9.6), label: $"IS"_2$, style: (stroke: rgb(red)))
+      plot.add(((6.2, 3.8),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: green, thickness: 2pt), fill: green), style: (stroke: none))
+      plot.add-hline(3.8, max: 10, style: (stroke: (paint: rgb(green), dash: "dotted", thickness: 1pt)))
+      plot.add-vline(6.2, max: 10, style: (stroke: (paint: rgb(green), dash: "dotted", thickness: 1pt)))
 
-      plot.add(((7, 7),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: green, thickness: 2pt), fill: green), style: (stroke: none))
-      plot.add-hline(7, max: 10, style: (stroke: (paint: rgb(green), dash: "dotted", thickness: 1pt)))
-
-
-      plot.add(((9, 5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: red, thickness: 2pt), fill: red), style: (stroke: none))
       }
     )
   }),
@@ -722,21 +856,43 @@ bla bla bla bl abla
         let domain = (2, 8)
 
         plot.add(x => -x + 10 , domain: (2,8), label: $ m^d_1 (Y_"black") $, style: (stroke: black))
-
         plot.add-hline(5, min: 0, max: 5, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
-        plot.add-vline(5, label: $ M^S/P $, style: (stroke: (paint: rgb("#938c8c"), thickness: 1pt)))
+        plot.add-vline(5, label: $ M_1^S/P $, style: (stroke: (paint: rgb("#938c8c"), thickness: 1pt)))
+        plot.add(((5, 5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: black, thickness: 2pt), fill: black), style: (stroke: none)) 
 
-        plot.add(((5, 5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: black, thickness: 2pt), fill: black), style: (stroke: none))   
 
-        plot.add-hline(7, max: 5, style: (stroke: (paint: rgb(green), dash: "dotted", thickness: 1pt)))
-        plot.add(((5, 7),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: green, thickness: 2pt), fill: green), style: (stroke: none))  
+        plot.add-hline(2, max: 8, style: (stroke: (paint: rgb(red), dash: "dotted", thickness: 1pt)))
+        plot.add-vline(8, label: $ M_2^S/P $, style: (stroke: (paint: rgb(red), thickness: 1pt)))
+        plot.add(((8, 2),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: red, thickness: 2pt), fill: red), style: (stroke: none)) 
 
-        plot.add(x => -x + 12 , domain: (2,8), label: $ m^d _2 (Y_"green") $, style: (stroke: green))
+        plot.add-hline(4, max: 8, style: (stroke: (paint: rgb(green), dash: "dotted", thickness: 1pt)))
+        plot.add(x => -x + 12 , domain: (3,9), label: $ m^d_2 (Y_"green") $, style: (stroke: red))
+        plot.add(((8, 4),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: green, thickness: 2pt), fill: green), style: (stroke: none)) 
+
       }
     )
   })
 )
 
+
+
+Formally: 
+
+#let formal_3  = $
+  & SS  =   \
+  & EE_(KK KK)  \
+  & EE_(II SS -LL  MM) \
+  & EE_(FF MM)  \
+  & Re = 
+$
+
+#block(
+  inset: 10pt, 
+  stroke: 0.2pt, 
+  width: 100%,
+  formal_3
+  
+)
 
 *Monetary policy in the IS-LM model.*
 
@@ -752,18 +908,54 @@ bla bla bla bl abla
       {
         let domain = (2, 8) 
       plot.add(x => -x + 10, domain: (2,8), label: $"IS"_1$, style: (stroke: rgb("#000000")))
-      plot.add(x => x, domain: (2,8), label: $"LM"$, style: (stroke: rgb("#938c8c")))
+      plot.add(x => x, domain: (2,8), label: $"LM"_1$, style: (stroke: rgb("#938c8c")))
       plot.add-vline(5, max: 10, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
       plot.add-hline(5, max: 9, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
       plot.add(((5, 5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: black, thickness: 2pt), fill: black), style: (stroke: none)) 
 
+      plot.add(x => x - 2, domain: (3,9), label: $"LM"_2$, style: (stroke: rgb(red)))
+      plot.add(((5, 3),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: red, thickness: 2pt), fill: red), style: (stroke: none)) 
+      plot.add-hline(3, max: 5, style: (stroke: (paint: rgb(red), dash: "dotted", thickness: 1pt)))
 
+
+      plot.add(((6, 4),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: green, thickness: 2pt), fill: green), style: (stroke: none)) 
+      plot.add-hline(4, max: 6, style: (stroke: (paint: rgb(green), dash: "dotted", thickness: 1pt)))
+      plot.add-vline(6, max: 4, style: (stroke: (paint: rgb(green), dash: "dotted", thickness: 1pt)))
+
+      plot.add-hline(1, min: 5 , max: 6, label: "Change of income in IS-LM via monetary policy", style: (stroke: (paint: rgb(purple), dash: "dotted", thickness: 1pt)))
+
+      plot.add-vline(5.2, min: 3, max: 5, label: "Liquidity effect" , style: (stroke: (paint: rgb(orange), dash: "dotted", thickness: 1pt)))
+
+      plot.add-vline(4.8, min: 3, max: 4, label: "Income effect" , style: (stroke: (paint: rgb(yellow), dash: "dotted", thickness: 1pt)))
       }
     )
 }),
 #set align(left)
 
+
+Formally: 
+
+#let task  = $
+  & SS  =   \
+  & EE_(KK KK)  \
+  & EE_(II SS -LL  MM) \
+  & EE_(FF MM)  \
+  & Re = 
+$
+
+#block(
+  inset: 10pt, 
+  stroke: 0.2pt, 
+  width: 100%,
+  task
+  
+)
+
+
 *Effects of the monetary policy in the IS-LM model.*
+
+Увеличение предложения денег ($M^S$) при исходоной ставки процента и исходном уровне выпуска ведет к $m^d < (M^S)/P => S_"ЦБ" < D_"ЦБ"$. Для ликвидации неравновесия на рынке уенных бумаг их доходность $(R)$ падает , это действует эффект ликвидности. Снижение ставки процента увеличивает инвестиции, совокупные расходы растут, доходы расту ($Y$), спрос на деньги $m^d$ растет. На финансовом рынке возникает неравновесие: $m^d > M^S/P => S_"ЦБ" > D_"ЦБ"$. Для ликвидации неравновесия на рынке ценных бумаг доходность ($R arrow.t$), это действует эффект дохода. Так как действие эффекта ликвидности больше эффекта доход, то в результате равновесная ставка процента падает, то есть в итоге на товарном рынке инвестиции растут, равновестный доход растет.    
+
 
 #set align(center)
 #grid(
@@ -774,12 +966,52 @@ bla bla bla bl abla
     import draw: *
     plot.plot(
       size: (4.9, 4.9),
-      x-label: "x", y-label: "y",       
+      x-label: "M?P", y-label: "R",       
       x-tick-step: none, y-tick-step: none,
       x-min: 0, x-max: 10, y-min: 0, y-max: 10,
       legend: "south",
       {
         let domain = (0, 10)
+
+        plot.add(x => -x + 10 , domain: (2,8), label: $m^d (Y_1)$, style: (stroke: black))
+
+        plot.add-hline(5, min: 0, max: 10, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
+        plot.add-vline(5, label: $ M_1^S/P $, style: (stroke: (paint: rgb("#938c8c"), thickness: 1pt)))
+
+        plot.add(((5, 5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: black, thickness: 2pt), fill: black), style: (stroke: none))
+
+        plot.add-vline(7, label: $ M_2^S/P $, style: (stroke: (paint: rgb(red), thickness: 1pt)))
+        plot.add(((7, 3),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: red, thickness: 2pt), fill: red), style: (stroke: none))
+        plot.add-hline(3, min: 0, max: 10, style: (stroke: (paint: rgb(red), dash: "dotted", thickness: 1pt)))
+        plot.add(x => -x + 11.5 , domain: (3,9), label: $ m^d (Y_2) $, style: (stroke: green))
+
+
+        plot.add(((7, 4.5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: green, thickness: 2pt), fill: green), style: (stroke: none))
+        plot.add-hline(4.5, min: 0, max: 10, style: (stroke: (paint: rgb(green), dash: "dotted", thickness: 1pt)))
+      }
+    )
+  }),
+
+  canvas({
+    import draw: *
+    plot.plot(
+      size: (4.9, 4.9),
+      x-label: "I", y-label: "R",       
+      x-tick-step: none, y-tick-step: none,
+      x-min: 0, x-max: 10, y-min: 0, y-max: 10,
+      legend: "south",
+      {
+        let domain = (0, 10)
+        plot.add(x => -x + 10 , domain: (2,8), style: (stroke: black))
+        plot.add-hline(5, min: 0, max: 5, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
+        plot.add(((5, 5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: black, thickness: 2pt), fill: black), style: (stroke: none))
+
+        plot.add-hline(3, min: 0, max: 10, style: (stroke: (paint: rgb(red), dash: "dotted", thickness: 1pt)))
+        plot.add(((7, 3),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: red, thickness: 2pt), fill: red), style: (stroke: none))
+
+        plot.add-hline(4.5, min: 0, max: 10, style: (stroke: (paint: rgb(green), dash: "dotted", thickness: 1pt)))
+        plot.add(((5.5, 4.5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: green, thickness: 2pt), fill: green), style: (stroke: none))
+
 
       }
     )
@@ -789,27 +1021,30 @@ bla bla bla bl abla
     import draw: *
     plot.plot(
       size: (4.9, 4.9),
-      x-label: "x", y-label: "y",       
+      x-label: "Y", y-label: "R",       
       x-tick-step: none, y-tick-step: none,
       x-min: 0, x-max: 10, y-min: 0, y-max: 10,
       legend: "south",
       {
         let domain = (0, 10)
 
-      }
-    )
-  }),
+        plot.add(x => -x + 10, domain: (2,8), label: $"IS"$, style: (stroke: rgb("#000000")))
+        plot.add(x => x, domain: (2,8), label: $"LM"_1$, style: (stroke: rgb("#938c8c")))
+        plot.add-vline(5, max: 5, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
+        plot.add-hline(5, max: 5, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
+        plot.add(((5, 5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: black, thickness: 2pt), fill: black), style: (stroke: none))
 
-  canvas({
-    import draw: *
-    plot.plot(
-      size: (4.9, 4.9),
-      x-label: "x", y-label: "y",       
-      x-tick-step: none, y-tick-step: none,
-      x-min: 0, x-max: 10, y-min: 0, y-max: 10,
-      legend: "south",
-      {
-        let domain = (0, 10)
+        plot.add(((4, 3),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: red, thickness: 2pt), fill: red), style: (stroke: none))
+        plot.add(x => x - 1, domain: (2.5,8.5), label: $"LM"_2$, style: (stroke: rgb(red)))
+
+        plot.add-hline(3, min: 0, max: 10, style: (stroke: (paint: rgb(red), dash: "dotted", thickness: 1pt)))
+
+        plot.add(((5.5, 4.5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: green, thickness: 2pt), fill: green), style: (stroke: none))
+        plot.add-hline(4.5, min: 0, max: 5.8, style: (stroke: (paint: rgb(green), dash: "dotted", thickness: 1pt)))
+        plot.add-vline(5.5, max: 4.6, style: (stroke: (paint: rgb(green), dash: "dotted", thickness: 1pt)))
+
+
+
 
       }
     )
@@ -817,12 +1052,89 @@ bla bla bla bl abla
 )
 #set align(left)
 
+*Изменения ставки процента в результате действия эффекта ликвидности.*
 
+#let task  = $
+M/P = m^(d')_Y dot Y + m^('d)_R dot R ==> (d M)/P - M/(P^2) dot d P = m^(d')_Y dot d Y + m^(d')_R dot d R ==> d R |_"LE" = 1/(m^d'_R) dot (d M)/P 
+$
+
+#block(
+  inset: 10pt, 
+  stroke: 0.2pt, 
+  width: 100%,
+  task
+)
+
+*Изменение ставки процента в результате действия эффекта дохода.*
+
+#let task  = $
+M/P = m^(d')_Y dot Y + m^('d)_R dot R ==> (d M)/P - M/(P^2) dot d P = m^(d')_Y dot d Y + m^(d')_R dot d R ==> d R |_"YE" = - (m^(d')_Y)/m^(d')_R dot d Y 
+$
+
+#block(
+  inset: 10pt, 
+  stroke: 0.2pt, 
+  width: 100%,
+  task
+)
+
+*Изменение ставки процента при проедениии монетарной политики.*
+
+#let task  = $
+d R  = d R|_"LE" + d R|_"YE" = (1/(m^d'_R) dot (d M)/P) dot (- (m^d'_Y)/m^d'_R dot d Y ) = 1/(m^'_R) dot ((d M)/P - m^d'_Y dot d Y)
+$
+
+#block(
+  inset: 10pt, 
+  stroke: 0.2pt, 
+  width: 100%,
+  task
+)
+
+*Изменение равновесного дохода при моентарной политики.*
+
+#let task  = $
+d Y = 1/(1 - alpha) dot (d I)
+$
+
+#block(
+  inset: 10pt, 
+  stroke: 0.2pt, 
+  width: 100%,
+  task
+)
 
 = Смешанная политика спроса в модели IS-LM
 
-bla bla bla bla 
+#let mixed_IS_LM = $
+mat((1-α)/m_d^(Y'), -I^'_R; m_d^(Y') , m_d^R)dot vec(d Y, d R) = vec(d G , (d M^S)/P)
+==>  \ 
+==>
 
+    d Y  
+  = mat(#($ d G$, $- I^'_R$), #($ (d M^S)/P$, $m^d'_R$), delim: "|")/triangle  = (m^(d')_R + I'_R)/triangle  dot d G > 0 , quad  
+
+  d R 
+  = mat(#($(1- alpha)$, $d G$), #($m^d'_Y$, $ (d M^S)/P$), delim: "|") /triangle = (overbracket((1 - alpha), (+)) dot (d M)/P  overbracket( - m^d_Y dot d G, (-)) )/triangle <  0
+$
+
+#block(
+  inset: 10pt, 
+  stroke: 0.2pt, 
+  width: 100%, 
+  mixed_IS_LM, 
+)
+
+
+*Монетарная политика и сдвиг кривой AD.*
+
+При монетарной политике экономика в модели IS-LM переходит в новое равновесие. 
+
+Величина совокупного спроса растет, но при том же уровне цен, что соотвествует параллеьному сдвигу AD. 
+
+Изменение величины совокупного спроса соотвествует изменинеию равновесного выпуска в модели IS-LM. 
+
+Чем больше моентарная политика в модели IS-LM воздействует на выпуск, тем более эффективно она воздействует на совокупный спрос. При этом изменение спроса при том же уровне цен равно изменению равновесия в IS-LM. 
 
 #canvas({ //this is the IS - LM model 
     import draw: *
@@ -834,11 +1146,21 @@ bla bla bla bla
       legend: "north-east",
       {
         let domain = (2, 8) 
-      plot.add(x => -x + 10, domain: (2,8), label: $"IS"_1$, style: (stroke: rgb("#000000")))
-      plot.add(x => x, domain: (2,8), label: $"LM"$, style: (stroke: rgb("#938c8c")))
-      plot.add-vline(5, max: 10, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
-      plot.add-hline(5, max: 9, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
-      plot.add(((5, 5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: black, thickness: 2pt), fill: black), style: (stroke: none)) 
+      plot.add(x => -x + 10, domain: (2,8), label: $ "IS"(G_1) $, style: (stroke: rgb("#000000")))
+      plot.add(x => x, domain: (2,8), label: $ "LM"(P_1, M_1) $, style: (stroke: rgb("#938c8c")))
+      plot.add-vline(5, max: 5, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
+      plot.add-hline(5, max: 5, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
+      plot.add(((5, 5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: black, thickness: 2pt), fill: black), style: (stroke: none))
+
+      plot.add(x => x, domain: (2,8), label: $ "LM"(P_1, M_2) $, style: (stroke: rgb("#938c8c")))
+      plot.add(x => x - 3, domain: (3.8,9.5), label: $ "LM" $, style: (stroke: rgb(red)))
+
+      plot.add-vline(6.5, max: 3.5, style: (stroke: (paint: rgb(red), dash: "dotted", thickness: 1pt)))
+      plot.add(((6.5, 3.5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: red, thickness: 2pt), fill: red), style: (stroke: none))
+
+      plot.add(((6.5, 6.5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: green, thickness: 2pt), fill: green), style: (stroke: none))
+      plot.add-vline(6.5, min: 3.5, max: 6.5, style: (stroke: (paint: rgb(green), dash: "dotted", thickness: 1pt)))
+      plot.add-hline(6.5, max: 6.5, style: (stroke: (paint: rgb(green), dash: "dotted", thickness: 1pt)))
 
 
       }
@@ -855,18 +1177,25 @@ bla bla bla bla
       legend: "north-east",
       {
         let domain = (2, 8) 
-      plot.add(x => -x + 10, domain: (2,8), label: $"IS"_1$, style: (stroke: rgb("#000000")))
+      plot.add(x => -x + 10, domain: (2,8), label: $"AD" (M_1)$, style: (stroke: rgb("#000000")))
 
+      plot.add(x => -x + 12, domain: (3,9), label: $"AD" (M_2)$, style: (stroke: rgb(red)))
+
+      plot.add-vline(5, max: 10, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
+      plot.add-hline(5, max: 5, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
+
+      plot.add-hline(5,min: 5, max: 7, style: (stroke: (paint: rgb(red), dash: "dotted", thickness: 1pt)))
+
+      plot.add(((5, 5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: black, thickness: 2pt), fill: black), style: (stroke: none))
+
+      plot.add(((5, 7),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: red, thickness: 2pt), fill: red), style: (stroke: none))
+
+      plot.add(((7, 5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: green, thickness: 2pt), fill: green), style: (stroke: none))
       }
     )
 }),
 
-
-
-
-mmmmmmmmmmmmmmmm 
-
-#pagebreak()
+Рассмотрим политику $d G = (d M)/P$ в модели IS-LM при случае падения ставки процента. 
 
 #canvas({ //this is the KK model 
   import draw: *
@@ -876,27 +1205,27 @@ mmmmmmmmmmmmmmmm
     x-label: $"Y"$, y-label: $"AE"$,
     x-tick-step: none, y-tick-step: none,
     x-min: 0, x-max: 10, y-min: 0, y-max: 10,
-    legend: "south",
+    legend: "north-east",
 
     {
       let domain = (0, 10)
       plot.add(x => x, domain: domain, style: (stroke: black),label: $ "AE"_f $)
-      plot.add(x => x * 1/2 + 2.5, domain: domain, style: (stroke: black), label: $ "AE"_1_(p l) (R_1) $)
-      plot.add-vline(5, max: 5, style: (stroke: (paint: rgb("#938c8c"), dash: "dotted", thickness: 1pt)))
-      plot.add(((5, 5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: black, thickness: 2pt), fill: black), style: (stroke: none))
+      plot.add(x => x * 1/2 + 1.5, domain: domain, style: (stroke: black), label: $ "AE"_1_(p l) (R_1) $)
+      plot.add-vline(3, max: 3, style: (stroke: (paint: rgb("#938c8c"), dash: "dotted", thickness: 1pt)))
+      plot.add(((3, 3),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: black, thickness: 2pt), fill: black), style: (stroke: none))
 
-      plot.add(x => x * 1/2 + 4.5, domain: domain, style: (stroke: red), label: $ "AE"_2_(p l) (R_1) $)
-      plot.add(((9, 9),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: red, thickness: 2pt), fill: red), style: (stroke: none))
-      plot.add-vline(9, max: 9, style: (stroke: (paint: rgb(red), dash: "dotted", thickness: 1pt)))
-
-
-      plot.add(x => x * 1/2 + 3.5, domain: domain, style: (stroke: green), label: $ "AE"_3_(p l) (R_2) $)
+      plot.add(x => x * 1/2 + 3, domain: domain, style: (stroke: red), label: $ "AE"_2_(p l) (R_1) $)
       plot.add(((7, 7),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: green, thickness: 2pt), fill: green), style: (stroke: none))
       plot.add-vline(7, max: 7, style: (stroke: (paint: rgb(green), dash: "dotted", thickness: 1pt)))
 
-      plot.add-vline(1, min: 3, max: 5, label: $ triangle G ( 1 - "mpc") $ , style: (stroke: (paint: rgb(red),  dash: "dotted", thickness: 1pt)))
 
-      plot.add-vline(1.2, min: 4.1, max: 5.1, label: $ triangle I $ , style: (stroke: (paint: rgb(green),  dash: "dotted", thickness: 1pt)))
+      plot.add(x => x * 1/2 + 3.5, domain: domain, style: (stroke: green), label: $ "AE"_3_(p l) (R_3) $)
+      plot.add(((6, 6),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: red, thickness: 2pt), fill: red), style: (stroke: none))
+      plot.add-vline(6, max: 6, style: (stroke: (paint: rgb(red), dash: "dotted", thickness: 1pt)))
+
+      plot.add-vline(1, min: 2, max: 3.6, label: $ triangle G  $ , style: (stroke: (paint: rgb(red),  dash: "dotted", thickness: 1pt)))
+
+      plot.add-vline(1.2, min: 3.6, max: 4, label: $ triangle I $ , style: (stroke: (paint: rgb(green),  dash: "dotted", thickness: 1pt)))
     }
   )
 })
@@ -914,23 +1243,29 @@ mmmmmmmmmmmmmmmm
       legend: "south",
       {
         let domain = (2, 8) 
-      plot.add(x => -x + 10, domain: (2,8), label: $"IS"_1$, style: (stroke: rgb("#000000")))
-      plot.add(x => x, domain: (2,8), label: $"LM"$, style: (stroke: rgb("#938c8c")))
-      plot.add-vline(5, max: 10, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
-      plot.add-hline(5, max: 9, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
-      plot.add(((5, 5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: black, thickness: 2pt), fill: black), style: (stroke: none)) 
+      plot.add(x => -x + 8, domain: (1,7), label: $"IS"_1$, style: (stroke: rgb("#000000")))
+      plot.add(x => x + 2, domain: (1,7), label: $"LM"$, style: (stroke: rgb("#938c8c")))
+      plot.add-vline(3, max: 10, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
+      plot.add-hline(5, max: 10, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
+      plot.add(((3, 5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: black, thickness: 2pt), fill: black), style: (stroke: none)) 
 
-      plot.add-vline(9, max: 10, style: (stroke: (paint: rgb(red), dash: "dotted", thickness: 1pt)))
+      plot.add-vline(6, max: 10, style: (stroke: (paint: rgb(red), dash: "dotted", thickness: 1pt)))
 
       plot.add-vline(7, max: 10, style: (stroke: (paint: rgb(green), dash: "dotted", thickness: 1pt)))
 
-      plot.add(x => -x + 14, domain: (4.5,9.6), label: $"IS"_2$, style: (stroke: rgb(red)))
-
-      plot.add(((7, 7),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: green, thickness: 2pt), fill: green), style: (stroke: none))
-      plot.add-hline(7, max: 10, style: (stroke: (paint: rgb(green), dash: "dotted", thickness: 1pt)))
+      plot.add(x => -x + 11, domain: (2.5,9), label: $"IS"_2$, style: (stroke: rgb(red)))
+      plot.add(x => x  - 2, domain: (2,9), label: $"LM"_2$, style: (stroke: rgb(orange)))
 
 
-      plot.add(((9, 5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: red, thickness: 2pt), fill: red), style: (stroke: none))
+      plot.add(((6, 5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: red, thickness: 2pt), fill: red), style: (stroke: none))
+      plot.add-hline(2, max: 10, style: (stroke: (paint: rgb(red), dash: "dotted", thickness: 1pt)))
+
+
+      plot.add(((9, 5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: green, thickness: 2pt), fill: green), style: (stroke: none))
+
+
+      plot.add(((3, 1),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: orange, thickness: 2pt), fill: orange), style: (stroke: none))
+
       }
     )
   }),
@@ -960,4 +1295,22 @@ mmmmmmmmmmmmmmmm
       }
     )
   })
+)
+
+Formally: 
+
+#let task  = $
+  & SS  =   \
+  & EE_(KK KK)  \
+  & EE_(II SS -LL  MM) \
+  & EE_(FF MM)  \
+  & Re = 
+$
+
+#block(
+  inset: 10pt, 
+  stroke: 0.2pt, 
+  width: 100%,
+  task
+  
 )
