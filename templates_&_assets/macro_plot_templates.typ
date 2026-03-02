@@ -90,7 +90,7 @@ All markets seen in the current semester have 3 potential stages.
 #canvas({
   import draw: *
 
-  plot.plot( //IS - LM model 
+  plot.plot( // bonds market 
     size: (6, 6),
     
     x-label: $"# ЦБ"$,
@@ -104,7 +104,7 @@ All markets seen in the current semester have 3 potential stages.
       let domain = (0, 10)
       //default 
       plot.add(x => -x + 10, domain: (2,8), label: $"S"_"ЦБ"$, style: (stroke: rgb("#000000")))
-      plot.add(x => x, domain: (2,8), label: $"D"_"ЦБ"$, style: (stroke: rgb("#938c8c")))
+      plot.add(x => x, domain: (1,9), label: $"D"_"ЦБ"$, style: (stroke: rgb("#938c8c")))
       plot.add-vline(5, max: 5, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
       plot.add-hline(5, max: 5, style: (stroke: (paint: rgb("#000000"), dash: "dotted", thickness: 1pt)))
       plot.add(((5, 5),), mark: "o", mark-size: 4pt, mark-style: (stroke: (paint: black, thickness: 2pt), fill: black), style: (stroke: none)) 
