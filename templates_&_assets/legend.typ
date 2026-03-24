@@ -6,19 +6,22 @@
 === Examples:
 #set align(left)
 #block(
-  fill: rgb("#577fe649"),
+  fill: rgb(0,0,100,50), 
+  width: 100%, 
+  stroke: 0.2pt, 
   inset: 10pt, 
   example
 )
 
 #let theorem = lorem(100)
 
-
 === Theorems, statements, implications, formulas, & conlusions: 
 
 #set align(left)
 #block(
-  fill: rgb("#ff8c003a"),
+  fill: rgb(100,0, 100, 50),
+  width: 100% ,
+  stroke: 0.2pt, 
   inset: 10pt, 
   theorem
 )
@@ -30,7 +33,9 @@
 
 #set align(left)
 #block(
-  fill: rgb("#0080003d"),
+  fill: rgb(0,100,0,50),
+  width: 100%,
+  stroke: 0.2pt, 
   inset: 10pt, 
   proof
 )
@@ -39,9 +44,19 @@
 
 #text(rgb("#3d67b0"))[
   $
-
+    "Энергоемкость" = "Потребление энергоресурсов ( кВт⋅ч)" / "ВРП (в постоянных ценах)" 
   $
 ]
+
+
+=== Mathematics 
+
+#block(
+  width: 100%, 
+  stroke: 0.2pt, 
+  inset: 10pt, 
+  $ f(x) = 1 $
+)
 
 
 === Macroeconomics formal notation

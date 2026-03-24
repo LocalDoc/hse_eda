@@ -1,4 +1,4 @@
-FES's Behind the scenes of probability theory course's abstract and practical notes. 
+FES's Behind the scenes of probability theory. 
 
 > [!NOTE]  
 >  Прошу любые найденные ошибки, несостыковки и опечатки сообщить [мне](https://t.me/local_dan) или поправить напрямую сделав MR.  Я буду очень благодарен! 

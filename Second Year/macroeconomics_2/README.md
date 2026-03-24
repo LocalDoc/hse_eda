@@ -1,0 +1,24 @@
+FES's first year basic Macroeconomics. (WIP)
+
+### Useful links:
+ - [Macro 2023 material disk](https://disk.yandex.ru/d/XIt3Zwtvqhg-pA)
+ 
+### Lectures: 
+ - Lecture 1: Введение в макроэкономику. 
+ - Lecture 2: Инфляция, модель AD-AS. Модель Круооборота. 
+ - Lecture 3: Модель Круооборота. Модель Кейнсианского Креста. 
+ - Lecture 4: Товарный рынок в модели 
+ - Lecture 5: Модель IS. 
+ - Lecture 6: Повороты IS, финансовый рынок в кейнсианской экономике. 
+ - Lecture 7: Модель LM и монетарная политика.  
+ - Lecture 8: Модель IS - LM.  
+ - Lecture 9 & 10: Фискальная, моентарная, смешанная политика, эффект вытеснения и политика спроса в модели IS-LM.
+ - Lecture 11 & 12: Эффективность политик спроса.  
+ - Lecture 13: 
+ - Lecture 14: Введение в открытую экономику. 
+
+ ### Test reviews: 
+ - Test 1: 
+ - Test 2: 
+ - Test 3:
+

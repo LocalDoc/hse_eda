@@ -1,8 +1,10 @@
-FCS's Discrete Mathematics' abstract and practical notes. 
- 
-> [!NOTE]  
->  Прошу любые найденные ошибки, несостыковки и опечатки сообщить [мне](https://t.me/local_dan) или поправить напрямую сделав MR.  Я буду очень благодарен! 
+FCS's Discrete mathematics 2. (Frozen)
 
-> [!WARNING]  
-> Notes that have no descriptions are being worked on or are somewhere in the pipeline to be worked on eventually.  
+###### References & links:
+
+###### Theory covered: 
+
+###### Practice material reviewed: 
+
+
 
