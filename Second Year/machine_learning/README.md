@@ -9,7 +9,14 @@ FCS's Machine Learning. (WIP)
  - The main material is taken from [esokolov's ml-course-hse spring-2026 repo](https://github.com/esokolov/ml-course-hse/tree/master/ml1-2026-spring)
  - [Sokolov's lecture recordings, among additional material.](https://disk.yandex.ru/d/2BYbUzOQdjd9cg)
 
-###### Theory covered: 
+###### Theory: 
+- Introduction to Machine Learning 
+- Linear models 
+- Linear regression 
+- Gradient descent
+- Linear classification 
+- Multi-class classification and categorical features 
+- 
 
 ###### Practice material reviewed: 
 
