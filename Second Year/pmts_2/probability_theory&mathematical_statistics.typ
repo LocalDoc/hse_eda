@@ -227,13 +227,12 @@ $
   var_mse_relation
 )
 
+$square$
 #let statement_proof = $
-  quad square \
+   \
   &  EE(hat(theta)-theta)^2 = EE[(hat(theta)- EE(hat(theta)) )] + [EE(hat(theta)- theta)]^2 = \ 
   & = underbracket(EE(hat(theta) - EE(hat((hat(theta)))))^2, "Var"(theta) ) + b^2(theta) + 2 b (theta) dot underbracket(EE(hat(theta) - EE(hat(theta)- EE(hat(theta)))), 0) "Var"(theta) + b^2(theta) \ 
-quad square.filled 
 $
-
 
 #block(
   width: 100%, 
@@ -242,4 +241,191 @@ $
   fill: rgb(0, 100, 0, 50),
   statement_proof
 )
+
+$square.filled $
+
+
+#pagebreak()
+
+= Интервальное оценивание (доверительные интервалы)
+
+
+
+#let motivation = "Мы хотим понимать диапозон в котором "
+
+#block(
+  width: 100%, 
+  inset: 10pt,
+  stroke: 0.2pt, 
+  motivation
+)
+
+Раньше, пользовались точечным оцениванием. 
+
+#let previously = $
+  & X_1, dots, X_n ~ F(underbracket(x,"unknown"), theta) 
+$
+
+#block(
+  width: 100%, 
+  inset: 10pt,
+  stroke: 0.2pt, 
+  fill: rgb(100, 0, 100, 50),
+  previously
+)
+
+*Доверительный интервал.*
+
+Мы хотим найти $P(T_1, (X) < theta < T_2 (X)) = underbracket(1 - alpha, "Уровень доверия")$
+
+Рассмотрим пример: 
+
+#let example = $
+  1 - alpha = 0.95 => "в среднем из 100 реализации данной выборки 95 будут содержать" theta
+$
+
+#block(
+  width: 100%, 
+  inset: 10pt,
+  stroke: 0.2pt, 
+  fill: rgb(0, 0, 100, 50),
+  example
+)
+
+
+*Длинна доверительныого интервала.*
+
+
+#let lenght = $
+  ell  = T_2 (X) - T_1 (X) "длина характеризет точность"
+$
+
+#block(
+  width: 100%, 
+  inset: 10pt,
+  stroke: 0.2pt, 
+  fill: rgb(100, 0, 100, 50),
+  lenght
+)
+
+Длина и точность часто бывает конфликтуют. 
+
+== Теорема (основная теорема статистики)
+
+
+
+#let lenght = $
+  & "Suppose that:"   X_1, dots, X_n ~ "iid" N (mu, sigma^2) "we can say that:" \ 
+  & 1). "Выборочное среднее" (overline(X) - mu)/(sigma/sqrt(n)) ~ N(0,1)
+  & 2). hat(sigma^2)/sigma^2 (n -1 ) ~ chi^2_(n-1) ; S^2/sigma^2 dot n ~ chi^2_(n-1) 
+  & 3). hat(sigma^2) bot overline(X) (S^2 bot overline(X)) 
+  & 4). (overline(X) - mu)/(hat(sigma)/sqrt(n)) ~ t_(n-1)
+$
+
+2 & 3 доказать с леммой фишера
+
+Докажем 4. 
+
+$square$
+#let statement_proof = $
+
+                           & (overline(X) - mu)/(hat(sigma)/sqrt(n)) =  underbracket((overline(X) - mu)/(hat(sigma)/sqrt(n)), ~ N (0","1)) dot sigma/hat(sigma) = (N(0,1))/(sqrt(chi^2_(n-1)/(n-1))) equiv t_(n-1)   \
+                           & sigma/hat(sigma) = 1/(hat(sigma)/sigma) = 1/sqrt(hat(sigma^2)/sigma^2) = 1/sqrt(underbracket(hat(sigma^2)/sigma^2 (n-1), chi^2_(n-1)) div (n-1)) 
+
+
+                        $
+
+#block(
+  width: 100%, 
+  inset: 10pt,
+  stroke: 0.2pt, 
+  fill: rgb(0, 100, 0, 50),
+  statement_proof
+)
+$square.filled$
+
+== Доверительный интервал для  $mu$. 
+
+$
+  X_1, dots, X_n ~ N(underbracket(mu, ?), underbracket(sigma^2, "known")). "Попробуем " \ 
+  "О среднем что мы знаем?" (overline(X) - mu)/(sigma/sqrt(n)) ~ N(0,1) \ 
+  "plot 2.2 present here" \ 
+  P(-Z_(alpha/2) < (overline(X) - mu)/(sigma/(sqrt(n))) < Z_(alpha/2)) = 1 - alpha \ 
+  "as a result (we've skipped a few steps" P(overline(X) - Z_(alpha/2) dot sigma/sqrt(n) <  mu < overline(X) + Z_(alpha/2) sigma/(sqrt(n))) 
+
+$
+
+Свойства доверительныого интервала для $mu$. 
+
++ Симметричен относительно $overline(X)$
++ $ell = 2 Z_(alpha/2) sigma/(sqrt(n))$
+
+В результате: 
+
+$
+  & (1 - alpha) arrow.t ell arrow.t , quad ell arrow.b n arrow.t
+$
+
+
+Пример: 
+
+
+=== Случай 1. 
+
+Есть 25 пакетиков в коробке. средний вес пакетиков 2.2, и стандартное отклонение 0.2 
+
+$
+  n = 25, overline(X) = 2.2 , sigma = 0.2. "Suppose that ~N"  \ 
+  (1 - alpha) = 0.95, Z_(alpha/2) = 1.96 \
+  2.2 - 1.96 dot 0.2/5 < mu < 2.2 + 1.96 dot 0.2/5 \ 
+  2.13 < mu < 2.27 \
+$
+ 
+
+Еслм бы нам было проверять все n нам лень.
+
+$
+  n = 4, overline(X) = 2.2  \ 
+  dots < mu < 2,2 + 1.96 dot 0.2/2 \ 
+  2.0 < mu < 2.4
+$
+
+
+=== Случай 2: Дисперсия неизвестна. 
+
+Рассмотрим второй случай.
+
+$
+  (overline(X) - mu)/(hat(sigma)/sqrt(n)) ~ t_(n-1) \ 
+  "2.2.2 picture" \ 
+  P(-t_(alpha/2;n-1) < (overline(X) - mu)/(hat(sigma)/sqrt(n)) < t_(alpha/2;n-1))  = 1- alpha \ 
+  p(overline(X) - t_(alpha/2; n-1) dot hat(sigma)/sqrt(n) < mu < overline(X) + t_(alpha/2 ; n-1 ) dot hat(sigma)/sqrt(n)) = 1-alpha
+$
+
+starting from n 30-40 there is little difference between ~t and ~N 
+
+Пример: 
+
+Потребление сред топлива авто. 
+
+The seller of the auto tells you one avg consumption, you take the car out for a drive and get the following (check if the seller of the car is lying to you by saying that $mu = 18$).
+
+$
+  "fuel consumption" 18.6, 18.4, 19,2, 20.8, 19.4, 20.5 \  
+  overline(X)  = 19.48 , space hat(sigma^2) = 0.96, space 1 - alpha = 0.9 , t_(0.05 ;5) = 2.015 \
+  19.48 - 2.015 dot (sqrt(0.96))/(sqrt(6)) < mu < 19.48 + 2.015 dot (sqrt(0.96))/(sqrt(6)) \ 
+  18.67 < mu < 20.29 
+$
+
+=== Случай 3: Большие выборки (любое распределение (для которых верна ЦПТ , т.е. есть $sigma$))
+
+$
+  "В силу ЦПТ" (overline(X) - mu)/(sigma/ sqrt(n)) underbracket(~, "асимпт.")  N(0,1) =>  overline(X) - mu)/(hat(sigma)/ sqrt(n)) => underbracket(~, "асимтотич.") N(0,1)\
+  P(overline(X) - Z_(alpha/2) dot sigma/(sqrt(n) ) < mu < overline(X) + Z_(alpha/2) dot sigma/(sqrt(n) )) approx 1 - x  \ 
+  "В силу теоремы слутского" \ 
+   
+$
+
+
+
 
