@@ -4,6 +4,8 @@ FES's first year basic Macroeconomics. (WIP)
  - [Macro 2023 material disk](https://disk.yandex.ru/d/XIt3Zwtvqhg-pA)
  
 ### Lectures: 
+
+#### Module 1: 
  - Lecture 1: Введение в макроэкономику. 
  - Lecture 2: Инфляция, модель AD-AS. Модель Круооборота. 
  - Lecture 3: Модель Круооборота. Модель Кейнсианского Креста. 
@@ -17,8 +19,6 @@ FES's first year basic Macroeconomics. (WIP)
  - Lecture 13: 
  - Lecture 14: Введение в открытую экономику. 
 
- ### Test reviews: 
- - Test 1: 
- - Test 2: 
- - Test 3:
-
+#### Module 2: 
+ - Lectures 20 - 21: Рынок труда и совокупное предложение в условиях полного рыночного приспособления. 
+ - Lectures 22 - 23: Совокупный спрос в экономике с гибкими ценами. 
