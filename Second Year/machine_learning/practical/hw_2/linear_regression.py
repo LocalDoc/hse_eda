@@ -25,8 +25,8 @@ class MSELoss(LossFunction, LossFunctionClosedFormMixin):
 
         returns: float, значение MSE на данных X,y для весов w
         """
-        raise NotImplementedError()
-        # TODO: implement
+        error = y - X @ w
+        return float((1 / y.size) * np.dot(error, error))
 
     def gradient(self, X: np.ndarray, y: np.ndarray, w: np.ndarray) -> np.ndarray:
         """
@@ -36,8 +36,7 @@ class MSELoss(LossFunction, LossFunctionClosedFormMixin):
 
         returns: np.ndarray, численный градиент MSE в точке w
         """
-        raise NotImplementedError()
-        # TODO: implement
+        return (2 / len(y)) * X.T @ (X @ w - y)
 
     def analytic_solution(self, X: np.ndarray, y: np.ndarray) -> np.ndarray:
         """
@@ -62,7 +61,7 @@ class MSELoss(LossFunction, LossFunctionClosedFormMixin):
 
         returns: np.ndarray, вектор весов, вычисленный при помощи классического аналитического решения
         """
-        raise NotImplementedError()
+        return np.linalg.inv(X.T @ X) @ X.T @ y
     
     @classmethod
     def _svd_analytic_solution(cls, X: np.ndarray, y: np.ndarray) -> np.ndarray:
@@ -72,8 +71,24 @@ class MSELoss(LossFunction, LossFunctionClosedFormMixin):
 
         returns: np.ndarray, вектор весов, вычисленный при помощи аналитического решения на SVD
         """
-        raise NotImplementedError()
+        from scipy.sparse.linalg import svds
 
+        n_objects, n_features = X.shape
+        k = min(n_objects, n_features) - 1
+
+        if (k < 1):
+            return np.linalg.pinv(X) @ y 
+    
+        U, s, Vt = svds(X, k=k, solver='arpack', tol=1e-12, maxiter = 10000)
+
+        idx = np.argsort(s)[::-1]
+        s = s[idx]
+        U = U[:, idx]
+        Vt = Vt[idx, :]
+
+        s_inv = 1.0 / s
+
+        return Vt.T @ np.diag(s_inv) @ U.T @ y 
 
 class L2Regularization(LossFunction):
 
@@ -87,14 +102,40 @@ class L2Regularization(LossFunction):
     
 
     def gradient(self, X: np.ndarray, y: np.ndarray, w: np.ndarray) -> np.ndarray:
+        w_penalty = w.copy()
+        w_penalty[-1] = 0.0
 
-        core_part = self.core_loss.gradient(X, y, w)
+        return self.core_loss.gradient(X, y, w) + self.mu_rate * w_penalty
+    
 
-        penalty_part = ...
+    def loss(self, X: np.ndarray, y: np.ndarray, w: np.ndarray) -> float:
+        w_penalty = w.copy()
+        w_penalty[-1] = 0.0
+        return float(self.core_loss.loss(X, y, w) + (self.mu_rate / 2) * np.dot(w_penalty, w_penalty))
 
-        raise NotImplementedError()
-        # TODO: implement
 
+class LogCosh(LossFunction):
+    def loss(self, X: np.ndarray, y: np.ndarray, w: np.ndarray) -> float:
+        return float(np.mean(np.log(np.cosh(X @ w - y))))
+
+    def gradient(self, X: np.ndarray, y: np.ndarray, w: np.ndarray) -> np.ndarray:
+        return (1 / len(y)) * X.T @ np.tanh(X @ w - y)
+
+
+class HuberLoss(LossFunction):
+    def __init__(self, delta: float = 1.0):
+        self.delta = delta
+
+    def loss(self, X: np.ndarray, y: np.ndarray, w: np.ndarray) -> float:
+        error = X @ w - y
+        abs_error = np.abs(error)
+        mask = abs_error < self.delta
+        return float(np.mean(np.where(mask, 0.5 * error ** 2, self.delta * abs_error - 0.5 * self.delta ** 2)))
+
+    def gradient(self, X: np.ndarray, y: np.ndarray, w: np.ndarray) -> np.ndarray:
+        error = X @ w - y
+        mask = np.abs(error) < self.delta
+        return (1 / len(y)) * X.T @ np.where(mask, error, self.delta * np.sign(error))
 
 
 class CustomLinearRegression(LinearRegressionInterface):
@@ -116,36 +157,20 @@ class CustomLinearRegression(LinearRegressionInterface):
         
 
     def predict(self, X: np.ndarray) -> np.ndarray:
-        """
-        returns: np.ndarray, вектор \hat{y}
-        """
-        # TODO: реализовать функцию предсказания в линейной регрессии
-        raise NotImplementedError("predict function is not implemented")
+        return np.atleast_2d(X) @ self.w
 
     def compute_gradients(self, X_batch: np.ndarray | None = None, y_batch: np.ndarray | None = None) -> np.ndarray:
-        """
-        returns: np.ndarray, градиент функции потерь при текущих весах (self.w)
-        Если переданы аргументы, то градиент вычисляется по ним, иначе - по self.X_train и self.y_train
-        """
-        raise NotImplementedError("Gradient caclucation is not implemented")
-
+        X_use = self.X_train if X_batch is None else X_batch
+        y_use = self.y_train if y_batch is None else y_batch
+        return self.loss_function.gradient(X_use, y_use, self.w)
 
     def compute_loss(self, X_batch: np.ndarray | None = None, y_batch: np.ndarray | None = None) -> float:
-        """
-        returns: np.ndarray, значение функции потерь при текущих весах (self.w) по self.X_train, self.y_train
-        Если переданы аргументы, то градиент вычисляется по ним, иначе - по self.X_train и self.y_train
-        """
-        raise NotImplementedError("Loss calculation is not implemented")
-
+        X_use = self.X_train if X_batch is None else X_batch
+        y_use = self.y_train if y_batch is None else y_batch
+        return self.loss_function.loss(X_use, y_use, self.w)
 
     def fit(self, X: np.ndarray, y: np.ndarray) -> None:
-        """
-        Инициирует обучение модели заданным функцией потерь и оптимизатором способом.
-        
-        X: np.ndarray, 
-        y: np.ndarray
-        """
-        # TODO: реализовать обучение модели
         self.X_train, self.y_train = X, y
-
-        raise NotImplementedError("Linear Regression training is not implemented")
+        self.w = np.zeros(X.shape[1])
+        self.loss_history = []
+        self.optimizer.optimize()
