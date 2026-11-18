@@ -1,0 +1,11 @@
+services:
+  postgres:
+    container_name: postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    image: postgres:13-alpine
+    restart: unless-stopped
+    ports:
+      - 5432:5432

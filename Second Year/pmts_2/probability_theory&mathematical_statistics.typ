@@ -5,29 +5,47 @@
 #show block: set align(center)
 
 #set document(
-  title: [
-    #text(size: 16pt, weight: "bold")[Probability Theory Mathematical Statistics Handbook]
-
-    #text(size: 16pt)[Faculty of Economic Sciences]
-
-    #text(size: 12pt)[Economics and Data Science]
-
-    #text(size: 12pt)[Daniel Fabian Freire Serioguina]
-  ],
-  date: datetime.today(),
+  title: [Subject name: Handbook],
+  author: "Freire Serioguina Daniel Fabian"
 )
 
-#title()
+#set page(
+  margin: (top: 2cm, bottom: 2cm),
+  numbering: "1", 
+  header: context [
+    #set text(8pt, style: "normal")
+    #grid(
+      columns: (0.75fr, 1fr),
+      [Probability Theory  and Mathematical Statistics Handbook],
+      align(right)[Faculty of Economic Sciences]
+    )
+    #v(-6pt) 
+    #line(length: 100%, stroke: 0.2pt)
+  ],
+  footer: context [
+    #line(length: 100%, stroke: 0.2pt)
+    #v(-6pt)
+    #set text(8pt)
+    #grid(
+      columns: (1fr, 1fr),
+      align(right)[Page #counter(page).display()]
+    )
+  ]
+)
+
+#align(center)[
+  #text(size: 16pt, weight: "bold")[Probability Theory  and Mathematical Statistics Handbook] \
+  #text(size: 16pt)[Faculty of Economic Sciences] \
+  #text(size: 12pt)[Economics and Data Science] \
+  #text(size: 8pt)[Freire Serioguina Daniel Fabian]
+]
 
 #set heading(numbering: "1.")
 #outline(depth: 2)
 
-#set page(numbering: "1")
-
 #show emph: set text(purple)
 
 #pagebreak()
-
 
 = Метод максимального правдоподобия 2.0
 
@@ -137,7 +155,6 @@ $
   fill: rgb(0, 100, 0, 50),
   statement_proof
 )
-
 
 
 

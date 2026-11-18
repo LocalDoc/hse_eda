@@ -1,0 +1,10 @@
+alembic
+asyncpg
+fastapi
+greenlet
+openapi-python-client
+psycopg2-binary
+pydantic
+pydantic-settings
+sqlalchemy
+uvicorn

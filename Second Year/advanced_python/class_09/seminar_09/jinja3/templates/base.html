@@ -1,0 +1,25 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Название сайта{% endblock %}</title>
+    <!-- Подключение стилей и скриптов -->
+</head>
+<body>
+    <header>
+        <!-- Общая шапка сайта -->
+    </header>
+    <nav>
+        <!-- Общая навигация -->
+    </nav>
+    <main>
+        {% block content %}
+        <!-- Динамический контент страниц -->
+        {% endblock %}
+    </main>
+    <footer>
+        <!-- Общий футер сайта -->
+    </footer>
+</body>
+</html>

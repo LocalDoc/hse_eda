@@ -1,0 +1,25 @@
+[project]
+name = "world-repeater"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "RELover97",email = "anton.labutin.1997@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.8,<3.15"
+dependencies = [
+]
+
+[tool.poetry]
+packages = [{include = "world_repeater", from = "src"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+world_repeater = "world_repeater.__main__:main"
+[dependency-groups]
+dev = [
+    "pyinstaller (>=6.16.0,<7.0.0)"
+]

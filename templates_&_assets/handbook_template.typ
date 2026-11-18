@@ -6,7 +6,7 @@
 
 #set document(
   title: [Subject name: Handbook],
-  author: "Freire Serioguina Daniel Fabian"
+  author: "Name"
 )
 
 #set page(

@@ -1,0 +1,8 @@
+set.seed(28617) 
+X1 <- round(rnorm(100, mean = 5), 2) 
+X2 <- round(runif(100, min = 5, max = 20), 2) 
+D <- rbinom(100, 1, 0.5) 
+Z <- sample(c("A", "B", "C"), 100, replace = TRUE) 
+b <- round(runif(5, min = 0.3, max = 0.8), 2) 
+Y <- round(b[1]*(X1 - 5) + b[2]*(X2 - 12.5)/5 + b[3]*(D - 0.5) + b[4]*(X1 - 5)*(D - 0.5) + b[5]*((Z == "C") - (Z == "A")) + rnorm(100), 2) 
+myData <- data.frame(Y, X1, X2, D, Z) 
